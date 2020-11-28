@@ -1,38 +1,36 @@
 ### Aim Mining
 
-Плагин представляет собой систему аим-майнинга.
-В конфиге можно настроить миры, в которых эта система действует, стартовую скорость добычи и бонус за успеншый крит стрик (успешный аим крит по блоку N раз подряд).
+The plugin is an aim mining system.
+In the config, you can configure the worlds in which this system operates, the starting speed of production and the bonus for a successful crit street (successful aim crit on a block N times in a row).
 
-Конфиг с подробными комментариями:
 ```yml
 mining:
-  # Миры, в которых работает система
+  # A worlds in which this system will works
   worlds:
     - 'world'
-  startSpeed: 25.0 # В процентах
-  critTempBonus: 25.0 # Бонус к скорости добычи для текущего блока при условии выполненого крита
-  critStreakBonus: 0.01 # Бонус к скорости добычи за каждый крит
+  startSpeed: 25.0 # In percents
+  critTempBonus: 25.0 # Bonus to mining speed for the current block, subject to a crit
+  critStreakBonus: 0.01 # Mining speed bonus for each cri
 messages:
   critMessage: '&7Crit Streak: &a${count}&7 (&e+${speed}&7 Скорость добычи)'
   critFailMessage: '&7Crit Streak: &c${count}&7 (&e+${speed}&7 Скорость добычи)'
   uselessTool: '&cЭто не самый подходящий инструмент'
 
-# Дропать ли предмет из блока, или сразу выдавать игроку
+# Is drop the item from the block, or give it to the player
 dropItem: false
 
-# Настройка дропа для каждого блока.
-# Если какого-то блока здесь нет - дроп с него будет дефолтный
+# Configure drop for each block
 drop:
   COAL_ORE:
-    drop: COAL # ID предмета
-    amount: 1 # Кол-во предметов
-    replaceBlock: STONE # Блок, на который заменится ископаемый. Эта строчка может отсутствовать, в таком случае блок просто удалится
+    drop: COAL # Item material
+    amount: 1 # Items amount
+    replaceBlock: STONE # The block to replace the fossil with. This line may be missing, in which case the block will simply be deleted
   EMERALD_ORE:
     drop: EMERALD
     amount: 1
     replaceBlock: STONE
 
-# Черный список блоков. Блоки находящиеся в этом списке не будут добываться, и им не наносится урон игроком
+# Block blacklist. Blocks in this list will not be mined and will not be damaged by the player
 blockBlackList:
   - STONE
   - GRASS
